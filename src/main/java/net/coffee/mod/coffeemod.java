@@ -27,6 +27,10 @@ public class coffeemod implements ModInitializer {
 
     public static final Block COFFIUM_BLOCK = new coffiumblock();
 
+    public static final Item COFFIUM_INGOT = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+
+
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffee"), COFFEE_ITEM);
@@ -37,6 +41,7 @@ public class coffeemod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "goldtrident"), GOLD_TRIDENT);
         Registry.register(Registry.BLOCK, new Identifier("coffeemod", "coffiumblock"), COFFIUM_BLOCK);
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumblock"), new BlockItem(COFFIUM_BLOCK, new  Item.Settings().group(ItemGroup.MISC)));
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumingot"), COFFIUM_INGOT);
      }
      
 }
