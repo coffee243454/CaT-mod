@@ -9,6 +9,9 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ShovelItem;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolItem;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
 
@@ -29,8 +32,16 @@ public class coffeemod implements ModInitializer {
 
     public static final Item COFFIUM_INGOT = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
 
+    public static ToolItem COFFIUM_SHOVEL = new ShovelItem(CoffiumMaterial.INSTANCE, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
 
+    public static ToolItem COFFIUM_PICKAXE = new coffiumpick(CoffiumMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
 
+    public static ToolItem COFFIUM_AXE = new coffiumaxe(CoffiumMaterial.INSTANCE, 7.0F, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
+
+    public static ToolItem COFFIUM_HOE = new coffiumhoe(CoffiumMaterial.INSTANCE, 7, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
+ 
+    public static ToolItem COFFIUM_SWORD = new SwordItem(CoffiumMaterial.INSTANCE, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+    
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffee"), COFFEE_ITEM);
@@ -42,6 +53,11 @@ public class coffeemod implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("coffeemod", "coffiumblock"), COFFIUM_BLOCK);
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumblock"), new BlockItem(COFFIUM_BLOCK, new  Item.Settings().group(ItemGroup.MISC)));
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumingot"), COFFIUM_INGOT);
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumshovel"), COFFIUM_SHOVEL);
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumpickaxe"), COFFIUM_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumaxe"), COFFIUM_AXE);
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumhoe"), COFFIUM_HOE);
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumsword"), COFFIUM_SWORD);
      }
      
 }
