@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "# #",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "coffeemod:coffiumingot"
+        }
+    },
+    "result": {
+        "item": "coffeemod:coffiumchestplate",
+        "count": 1
+    }
+}
