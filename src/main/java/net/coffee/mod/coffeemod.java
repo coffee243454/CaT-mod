@@ -3,6 +3,7 @@ package net.coffee.mod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
@@ -14,13 +15,14 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolItem;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 
 
 
 public class coffeemod implements ModInitializer {
 
-    public static final Item COFFEE_ITEM = new CoffeeItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().saturationModifier(10f).statusEffect(new StatusEffectInstance(StatusEffects.SPEED,20*20), 1.0f).build()));
+    public static final Item COFFEE_ITEM = new CoffeeItem(new FabricItemSettings().rarity(Rarity.RARE).group(ItemGroup.FOOD).food(new FoodComponent.Builder().saturationModifier(10f).hunger(10).statusEffect(new StatusEffectInstance(StatusEffects.SPEED,20*20), 1.0f).build()));
 
     public static final Block POG_BLOCK = new pogblock();
 
@@ -42,6 +44,9 @@ public class coffeemod implements ModInitializer {
  
     public static ToolItem COFFIUM_SWORD = new SwordItem(CoffiumMaterial.INSTANCE, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
     
+    public static CoffiumArmourMaterial COFFIUM_ARMOR = new CoffiumArmourMaterial();
+    
+
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffee"), COFFEE_ITEM);
@@ -58,6 +63,10 @@ public class coffeemod implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumaxe"), COFFIUM_AXE);
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumhoe"), COFFIUM_HOE);
         Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumsword"), COFFIUM_SWORD);
-     }
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumhelmet"), new armorbase(COFFIUM_ARMOR, EquipmentSlot.HEAD));
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumchestplate"), new armorbase(COFFIUM_ARMOR, EquipmentSlot.CHEST));
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumleggings"), new armorbase(COFFIUM_ARMOR, EquipmentSlot.LEGS));
+        Registry.register(Registry.ITEM, new Identifier("coffeemod", "coffiumboots"), new armorbase(COFFIUM_ARMOR, EquipmentSlot.FEET));
+    }
      
 }

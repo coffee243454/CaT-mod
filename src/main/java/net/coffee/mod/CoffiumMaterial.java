@@ -1,6 +1,5 @@
 package net.coffee.mod;
 
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
@@ -41,7 +40,7 @@ public class CoffiumMaterial implements ToolMaterial{
     @Override
     public Ingredient getRepairIngredient() {
         // TODO Auto-generated method stub
-        return Ingredient.ofItems(Items.POTATO);
+        return Ingredient.ofItems(coffeemod.COFFIUM_INGOT);
     }
     
 }
